@@ -6,10 +6,8 @@
 
 Log Into vsphere using kubectl vsphere plugin
 ```
-kubectl vsphere login --server wcp.lab.livefire.dev --vsphere-username toddb@lab.livefire.dev --insecure-skip-tls-verify
+kubectl vsphere login --server wcp.lab.livefire.dev --vsphere-username <user name> --insecure-skip-tls-verify
 ```
-
-  kubectl vsphere login --server wcp.lab.livefire.dev --vsphere-username toddb@lab.livefire.dev --insecure-skip-tls-verify
 
 #### Step 2 #### 
 
@@ -28,4 +26,4 @@ Use kubectl apply -f with valid tkg yaml
 kubectl apply -f <tkg.cluster.deployment.yaml>
 ```
 
-```
+Hellow World
