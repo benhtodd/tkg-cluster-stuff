@@ -8,6 +8,9 @@ Log Into vsphere using kubectl vsphere plugin
 ```
 kubectl vsphere login --server wcp.lab.livefire.dev --vsphere-username <user name> --insecure-skip-tls-verify
 ```
+You will be asked to enter your password and then be shown he vSphere Workload Management Namespaces You have access to
+
+![VMware Tanzu](./img/kubectl.vsphere.login.png)
 
 #### Step 2 #### 
 
