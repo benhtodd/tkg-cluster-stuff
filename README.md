@@ -14,4 +14,7 @@ Switch vSphere with Tanzu Workload Managment Namespace
 
 Use kubectl apply -f with valid tkg yaml
 
-``` kubectl apply -f <tkg.cluster.deployment.yaml>
+``` 
+kubectl apply -f <tkg.cluster.deployment.yaml>
+
+```
