@@ -10,7 +10,7 @@ kubectl vsphere login --server wcp.lab.livefire.dev --vsphere-username <user nam
 ```
 You will be asked to enter your password and then be shown he vSphere Workload Management Namespaces You have access to
 
-![VMware Tanzu](./img/kubectl.vsphere.login.png)
+![VMware Tanzu](./img/kubectl.vsphere.login.PNG)
 
 #### Step 2 #### 
 
