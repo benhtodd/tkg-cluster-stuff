@@ -1,0 +1,17 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1
+kind: TanzuKubernetesCluster                   
+metadata:
+  name: tkg-cluster-01                          
+  namespace: livefire                       
+spec:
+  distribution:
+    version: v1.19                             
+  topology:
+    controlPlane:
+      count: 3                                 
+      class: best-effort-small                 
+      storageClass: vsphere-with-kubernetes       
+    workers:
+      count: 5                                 
+      class: best-effort-small                 
+      storageClass: vsphere-with-kubernetes
