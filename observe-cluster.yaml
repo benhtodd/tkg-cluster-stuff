@@ -2,9 +2,9 @@ apiVersion: run.tanzu.vmware.com/v1alpha1
 kind: TanzuKubernetesCluster                   
 metadata:
   # Name of cluster example tkg-cluster-01
-  name: toddb-prom-02                        
+  name: student-01-cluster                       
   # vSphere Workload Management Nameapace to deploy cluster to
-  namespace: monitoring                       
+  namespace: observability                       
 spec:
   distribution:
     version: v1.18                             

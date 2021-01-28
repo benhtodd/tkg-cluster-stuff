@@ -69,7 +69,7 @@ kubectl apply -f <tkg.cluster.deployment.yaml>
 To delete the cluster use
 
 ```
-kubectl delete tanzukubernetescluster --namespace CLUSTER-NAMESPACE CLUSTER-NAME
+kubectl delete TanzuKubernetescluster --namespace CLUSTER-NAMESPACE CLUSTER-NAME
 ```
 Documentation used for this simple tutorialL
 https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/1.0/vmware-tanzu-kubernetes-grid-10/GUID-tanzu-k8s-clusters-index.html
