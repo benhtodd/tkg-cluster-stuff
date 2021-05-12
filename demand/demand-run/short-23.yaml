@@ -2,7 +2,7 @@ apiVersion: run.tanzu.vmware.com/v1alpha1
 kind: TanzuKubernetesCluster                   
 metadata:
   # Name of cluster example tkg-cluster-01
-  name: test-cluster-04                      
+  name: short-23                       
   # vSphere Workload Management Nameapace to deploy cluster to
   namespace: capacity-test                       
 spec:
@@ -18,8 +18,17 @@ spec:
       storageClass: vsphere-with-kubernetes 
     workers:
       #
-      count: 3                
+      count: 1                
       #                 
-      class: best-effort-small     
+      class: best-effort-xlarge     
       #vSphere storage class to use get this from vsphere admin
       storageClass: vsphere-with-kubernetes 
+  settings:
+    network:
+      cni:
+        name: antrea
+      services:
+        cidrBlocks: ["10.96.0.0/16"] 
+      pods:
+        cidrBlocks: ["172.20.0.0/16"]
+      serviceDomain: "ben.local"

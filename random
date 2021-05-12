@@ -1,0 +1,38 @@
+kubectl vsphere login --server wcp.lab.livefire.dev --vsphere-username observe@vsphere.local --insecure-skip-tls-verify  --tanzu-kubernetes-cluster-name student-01-cluster  --tanzu-kubernetes-cluster-namespace observability
+
+test-cluster-04
+
+
+
+kubectl create clusterrolebinding default-tkg-admin-privileged-binding --clusterrole=psp:vmware-system-privileged --group=system:authenticated
+kubectl create clusterrolebinding privileged-role-binding --clusterrole=vmware-system-tmc-psp-privileged --group=system:authenticated
+
+kubectl create clusterrolebinding x:wavefront:default:psp:privileged --clusterrole=vmware-system-tmc-psp-privileged --serviceaccount=wavefront:default
+
+kubectl create clusterrolebinding x:wavefront:default:psp:privileged --clusterrole=psp:vmware-system-privileged --serviceaccount=wavefront:default
+
+kubectl create -f https://raw.githubusercontent.com/burkeazbill/Tito/master/asset/Deployment/K8/LB/tito-full-lb.yml -n tito
+
+kubectl create deployment nginx --image=nginx
+
+
+
+kubectl create namespace wavefront && helm install wavefront wavefront/wavefront  --set wavefront.url=https://longboard.wavefront.com  --set wavefront.token=40e8df97-34b4-4946-a10d-f61f8e6888c7 --set clusterName="toddb-prom" --namespace wavefront --set projectPacific.enabled=true
+
+
+
+NOTE:  This is the original Name of the Edge Cluster Resource Pool: VCF-edge_cs-wld-ec01_ResourcePool_05378ef3-8e91-43a5-a282-4ed53383e0b4
+
+
+kubectl create clusterrolebinding psp:authenticated --clusterrole=psp:vmware-system-privileged --group=system:authenticated
+
+
+
+####Installing wavefront for docker
+##Install waverfont docker image
+docker run -d -e WAVEFRONT_URL=https://longboard.wavefront.com/api/ -e WAVEFRONT_TOKEN=40e8df97-34b4-4946-a10d-f61f8e6888c7 -e JAVA_HEAP_USAGE=512m -p 2878:2878 wavefronthq/proxy:latestdocker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:rw --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --publish=8080:8080 --detach=true --name=cadvisor wavefronthq/cadvisor:latest -storage_driver=wavefront -storage_driver_wf_source=$(hostname) -storage_driver_wf_proxy_host=toddb.docker.local:2878docker run -d -e WAVEFRONT_URL=https://longboard.wavefront.com/api/ -e WAVEFRONT_TOKEN=40e8df97-34b4-4946-a10d-f61f8e6888c7 -e JAVA_HEAP_USAGE=512m -p 2878:2878 wavefronthq/proxy:latest
+##Install cadvisor for wavefront on docker
+docker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:rw --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --publish=8080:8080 --detach=true --name=cadvisor wavefronthq/cadvisor:latest -storage_driver=wavefront -storage_driver_wf_source=$(hostname) -storage_driver_wf_proxy_host=toddb.docker.local:2878
+
+
+####Installing Prometheus - Orignal Blog - https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/

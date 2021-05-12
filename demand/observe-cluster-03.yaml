@@ -2,9 +2,9 @@ apiVersion: run.tanzu.vmware.com/v1alpha1
 kind: TanzuKubernetesCluster                   
 metadata:
   # Name of cluster example tkg-cluster-01
-  name: test-cluster-04                      
+  name: demand-03-cluster                       
   # vSphere Workload Management Nameapace to deploy cluster to
-  namespace: capacity-test                       
+  namespace: observability                       
 spec:
   distribution:
     version: v1.18                             
@@ -18,8 +18,8 @@ spec:
       storageClass: vsphere-with-kubernetes 
     workers:
       #
-      count: 3                
+      count: 1                
       #                 
-      class: best-effort-small     
+      class: best-effort-xlarge     
       #vSphere storage class to use get this from vsphere admin
       storageClass: vsphere-with-kubernetes 

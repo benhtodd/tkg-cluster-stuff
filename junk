@@ -1,0 +1,71 @@
+Note: If you are not a member of the TKG engineering team, please describe the circumstances of reporting this issue and the name of the customer (if any) you are working with. If this is a feature request, please use Aha to request it --
+Tanzu Ideas Portal: https://tanzu.ideas.aha.io/ideas/ 
+vSphere Ideas Portal: https://vsphere.ideas.aha.io/ideas/
+
+Give a clear and concise description on how to REPRODUCE the bug.
+
+Simply deploy multiple TKGs clusters at one time.
+
+I have tested this with 5, 10, 20, and more at one time. Many Many "failures"
+
+What did you expect to happen (expected results): We expect to see the cluster to be created
+
+What steps did you take and what happened (actual results): Using TMC CLI or UI, a very large number of clusters more then 50% at times get stuck in creating for hours or days
+
+
+
+Impact of the issue (with affected customers, if any): Livefire does global enablement for partners, this is failing like this with them at the controls. It does not look good.
+
+
+
+
+Environment:
+
+VC Build Number (buildwebofficialbuild #): 7.0.2 Build 17694817
+
+TKR (Tanzu Kubernetes Release, GC OVA) Build Number/Version Number:
+
+
+
+Artifacts needed to be attached (required):
+
+1. Please include WCP support bundles in bug reports for all product issues. Support bundles can be retrieved by logging into the VC UI and selecting Menu -> Workload Platform -> Clusters -> Export Logs, with the appropriateclusterselected.
+
+Trying to export logs gives this error, after a download started but failed
+
+The request could not be completed. Another download of logs may be in progress already or another error occurred, try again in a few minutes.
+
+2. TKC support bundle for the affected Tanzu Kubernetes Cluster (please follow the steps https://kb.vmware.com/s/article/80949 to acquire that support bundle)
+
+tried to run but getting errors:
+
+❯ ./tkc-support-bundler create \
+-k /home/toddb/.kube/config \
+-o /tmp \
+-c short-11 \
+-n capacity-test \
+-i tkg
+2021/04/28 09:51:49 validating input kubeconfig...
+2021/04/28 09:51:49 verified access to cluster short-11
+2021/04/28 09:51:49 fetching configuration for short-11...
+2021/04/28 09:51:49 bundle request time: 1619628709
+2021/04/28 09:51:49 using container image: tkg
+2021/04/28 09:51:49 verifying podVM support...
+2021/04/28 09:51:49 successfully created a test podVM, cleaning it up...
+2021/04/28 09:51:49 spinning up a pvc and pod to collect the bundle...
+2021/04/28 09:51:49 creating PVC on supervisor cluster...
+2021/04/28 09:51:49 created PVC support-bundle-pvc-short-11-1619628709 in namespace capacity-test
+2021/04/28 09:51:49 creating Job to collect support-bundle...
+2021/04/28 09:51:49 created Job support-bundle-job-short-11-1619628709 in namespace capacity-test
+2021/04/28 09:51:49 monitoring job till completion...
+2021/04/28 09:51:49 verifying job creation...
+2021/04/28 09:51:49 verified: support-bundle-job-short-11-1619628709
+2021/04/28 09:51:49 verifying pod creation...
+2021/04/28 09:51:49 verified: support-bundle-job-short-11-1619628709-cbd2c
+2021/04/28 09:51:49 pod status: pending...waiting
+2021/04/28 09:51:52 pod status: pending...waiting
+2021/04/28 09:51:52 pod status: pending...waiting
+2021/04/28 09:51:53 pod status: pending...waiting
+2021/04/28 09:51:56 pod status: pending...waiting
+2021/04/28 09:51:57 pod status: pending...waiting
+2021/04/28 09:52:00 encountered error: failed because pod in unexpected stage
